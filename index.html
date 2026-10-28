@@ -30,53 +30,48 @@
       <!-- 1. STOREY PAGE TRANSITION OVERLAY (#transition-overlay) -->
       <div id="transition-overlay" class="w-full h-[100svh] bg-secondary z-[100] pointer-events-none fixed top-0 left-0 opacity-0"></div>
 
-      <!-- 2. MODAL CONTACT (Paperclipped Project Brief Drawer) -->
-      <div id="contact-modal" class="w-full h-[100dvh] z-[60] fixed top-0 left-0 pointer-events-none overflow-y-scroll sm:overflow-y-hidden" role="dialog" aria-modal="true" aria-label="Request a Free Quote" aria-hidden="true">
-        <div id="contact-modal-bg" class="w-full h-full fixed top-0 left-0 bg-secondary/50 opacity-0" data-action="close-contact-modal"></div>
-        <div class="w-full h-fit relative flex justify-center">
-          <div id="contact-modal-sheet" class="w-full sm:w-[73.6vw] h-fit mt-[20vw] sm:mt-[3vw] relative translate-y-[110%] rotate-[12deg]">
-            <div class="absolute top-0 right-0 p-[var(--margin)] z-20">
-              <button type="button" class="extraSmallText cursor-pointer font-mono px-[0.5vw] py-[0.25vw]" data-action="close-contact-modal" aria-label="Close quote form">Close [ESC]</button>
+      <!-- 2. MODAL CONTACT (Exact Storey BV5TILUP.js ModalContact Structure) -->
+      <div id="contact-modal" class="fixed inset-0 z-50 hidden" style="pointer-events: none; background-color: rgba(0, 0, 0, 0);" role="dialog" aria-modal="true" aria-label="Request a Free Quote" aria-hidden="true" data-action="close-contact-modal">
+        <div id="contact-modal-panel" class="h-full">
+          <div id="contact-modal-scroll-wrapper" class="h-full overflow-y-auto overscroll-contain" data-lenis-prevent>
+            <div id="contact-modal-scroll-content">
+              <div class="layout-grid">
+                <div id="contact-modal-sheet" class="col-span-9 sm:col-start-4 mt-[40svh] mb-[10svh] relative">
+                  <div id="contact-modal-form-mount"></div>
+                </div>
+              </div>
             </div>
-            <div id="contact-modal-form-mount"></div>
           </div>
         </div>
       </div>
 
-      <!-- 3. CORE MOBILE MENU -->
-      <div id="mobile-menu" class="w-full h-[100dvh] fixed top-0 left-0 z-50 bg-secondary text-primary py-[4.5vw] opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu" aria-hidden="true">
-        <div class="w-full h-full flex flex-col justify-between">
-          <div class="layout-grid w-full">
-            <div class="col-span-5">
-              <a href="#/" class="flex sm:gap-[0.55vw] gap-[2vw] items-center cursor-pointer" data-action="close-mobile-menu">
+      <!-- 3. CORE MOBILE MENU (Exact Storey BV5TILUP.js CoreMobileMenu Curtain Structure) -->
+      <div id="mobile-menu" class="w-full h-0 fixed top-0 left-0 bg-primary z-50 overflow-hidden text-primary pointer-events-none" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu" aria-hidden="true">
+        <div class="w-full h-[100lvh] bg-secondary relative pt-[3vw] sm:pt-0">
+          <div class="layout-grid h-auto items-start pt-[1.5vw]">
+            <div class="col-span-4 sm:col-span-6 h-fit">
+              <a href="#/" class="flex h-fit w-fit sm:gap-[0.55vw] gap-[2vw] items-center cursor-pointer relative z-20" data-action="close-mobile-menu">
                 <div class="w-[7.5vw] sm:w-[2.1vw] h-auto" data-brand-logo-mount></div>
                 <span class="mediumText">Elite</span>
               </a>
             </div>
-            <div class="col-span-1 flex justify-end">
-              <button type="button" class="mediumText" data-action="close-mobile-menu">Close</button>
+            <div class="sm:hidden block col-span-2">
+              <div class="mediumText flex w-full justify-end cursor-pointer" data-action="close-mobile-menu">Close</div>
             </div>
           </div>
 
-          <div class="layout-grid">
-            <div class="col-span-6">
-              <ul class="largeText space-y-[1vw]">
-                <li><a href="#/" data-action="close-mobile-menu">Home</a></li>
-                <li><a href="#/projects" data-action="close-mobile-menu">Projects</a></li>
-                <li><a href="#/studio" data-action="close-mobile-menu">Studio</a></li>
-                <li><a href="#/journal" data-action="close-mobile-menu">Journal</a></li>
-                <li><a href="#/faq" data-action="close-mobile-menu">FAQ</a></li>
-                <li class="pt-[2vw]"><button type="button" class="largeText underline" data-action="open-contact-modal">Free Quote</button></li>
-              </ul>
-            </div>
+          <div class="w-full layout-grid mt-[20svh] space-y-[1svh]">
+            <div class="col-span-4"><a href="#/" class="mediumText" data-action="close-mobile-menu">Home</a></div>
+            <div class="col-span-4"><a href="#/projects" class="mediumText" data-action="close-mobile-menu">Projects</a></div>
+            <div class="col-span-4"><a href="#/studio" class="mediumText" data-action="close-mobile-menu">Studio</a></div>
+            <div class="col-span-4"><a href="#/journal" class="mediumText" data-action="close-mobile-menu">Journal</a></div>
+            <div class="col-span-4"><a href="#/faq" class="mediumText" data-action="close-mobile-menu">FAQ</a></div>
+            <div class="col-span-4 pt-[2svh]"><button type="button" class="mediumText underline text-[#1F74FC]" data-action="open-contact-modal">Free Quote</button></div>
           </div>
 
-          <div class="layout-grid extraSmallText">
-            <div class="col-span-6 flex flex-col gap-[1vw]">
-              <a href="mailto:info@elitehomecreationsdfw.com">info@elitehomecreationsdfw.com</a>
-              <a href="tel:+12142980007">(214) 298-0007</a>
-              <span class="opacity-60 font-mono">Dallas / Fort Worth Area, TX</span>
-            </div>
+          <div class="w-full layout-grid mt-[15svh] space-y-[1svh] smallText">
+            <div class="col-span-4"><a href="mailto:info@elitehomecreationsdfw.com" class="smallText">info@elitehomecreationsdfw.com</a></div>
+            <div class="col-span-4"><a href="tel:+12142980007" class="smallText">(214) 298-0007</a></div>
           </div>
         </div>
       </div>

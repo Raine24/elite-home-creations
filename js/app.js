@@ -1474,77 +1474,144 @@
   }
 
   // =========================================================================
-  // 17. MODAL CONTACT & MOBILE MENU CONTROLLERS (BJo4ozbC.js)
+  // 17. MODAL CONTACT & MOBILE MENU CONTROLLERS (Exact BV5TILUP.js CR & HR)
   // =========================================================================
+  let modalLenis = null;
+  let isContactModalOpen = false;
+
   function openContactModal() {
     const modal = document.getElementById("contact-modal");
-    const bg = document.getElementById("contact-modal-bg");
-    const sheet = document.getElementById("contact-modal-sheet");
-    if (!modal || !bg || !sheet) return;
+    const panel = document.getElementById("contact-modal-panel");
+    const scrollWrapper = document.getElementById("contact-modal-scroll-wrapper");
+    const scrollContent = document.getElementById("contact-modal-scroll-content");
+    if (!modal || !panel) return;
 
-    modal.classList.remove("pointer-events-none");
-    modal.classList.add("pointer-events-auto");
+    isContactModalOpen = true;
+    if (lenis) lenis.stop();
+
+    modal.classList.remove("hidden");
+    modal.style.display = "block";
+    modal.style.pointerEvents = "auto";
     modal.setAttribute("aria-hidden", "false");
 
+    if (scrollWrapper) scrollWrapper.scrollTop = 0;
+
+    if (window.Lenis && scrollWrapper && scrollContent) {
+      if (modalLenis) modalLenis.destroy();
+      modalLenis = new window.Lenis({
+        wrapper: scrollWrapper,
+        content: scrollContent,
+        lerp: 0.05,
+        duration: 0.6,
+        smoothWheel: true,
+        autoRaf: true
+      });
+      modalLenis.resize();
+    }
+
     if (gsap) {
-      gsap.to(bg, { opacity: 1, duration: 0.4, ease: "power2.out" });
-      gsap.to(sheet, {
+      gsap.killTweensOf([modal, panel]);
+      gsap.set(panel, { y: "100%" });
+      gsap.to(panel, {
         y: "0%",
-        rotate: 0,
-        duration: 0.75,
-        ease: "power4.out"
+        duration: 1,
+        ease: "power2.out",
+        onComplete: () => {
+          if (modalLenis) modalLenis.resize();
+        }
+      });
+      gsap.to(modal, {
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        duration: 1.5,
+        ease: "power2.out"
       });
     }
   }
 
   function closeContactModal() {
     const modal = document.getElementById("contact-modal");
-    const bg = document.getElementById("contact-modal-bg");
-    const sheet = document.getElementById("contact-modal-sheet");
-    if (!modal || !bg || !sheet) return;
+    const panel = document.getElementById("contact-modal-panel");
+    if (!modal || !panel || !isContactModalOpen) return;
 
-    modal.classList.remove("pointer-events-auto");
-    modal.classList.add("pointer-events-none");
+    isContactModalOpen = false;
+    modal.style.pointerEvents = "none";
     modal.setAttribute("aria-hidden", "true");
 
+    if (modalLenis) {
+      modalLenis.destroy();
+      modalLenis = null;
+    }
+    if (lenis) lenis.start();
+
     if (gsap) {
-      gsap.to(bg, { opacity: 0, duration: 0.35, ease: "power2.in" });
-      gsap.to(sheet, {
-        y: "110%",
-        rotate: 12,
-        duration: 0.6,
-        ease: "power3.in"
+      gsap.killTweensOf([modal, panel]);
+      gsap.to(panel, {
+        y: "150%",
+        duration: 0.5,
+        ease: "power2.in",
+        onComplete: () => {
+          if (!isContactModalOpen) {
+            modal.style.display = "none";
+          }
+        }
       });
+      gsap.to(modal, {
+        backgroundColor: "rgba(0, 0, 0, 0)",
+        duration: 1.5,
+        ease: "power2.out"
+      });
+    } else {
+      modal.style.display = "none";
     }
   }
 
   function openMobileMenu() {
     const menu = document.getElementById("mobile-menu");
     if (!menu) return;
-    menu.classList.remove("pointer-events-none");
-    menu.classList.add("pointer-events-auto");
     menu.setAttribute("aria-hidden", "false");
     if (gsap) {
-      gsap.to(menu, { opacity: 1, duration: 0.3, ease: "power2.out" });
+      gsap.to(menu, {
+        height: "100lvh",
+        duration: 0.75,
+        ease: "power2.out",
+        onStart: () => {
+          menu.style.pointerEvents = "auto";
+        }
+      });
     } else {
-      menu.style.opacity = "1";
+      menu.style.height = "100vh";
+      menu.style.pointerEvents = "auto";
     }
   }
 
   function closeMobileMenu() {
     const menu = document.getElementById("mobile-menu");
     if (!menu) return;
-    menu.classList.remove("pointer-events-auto");
-    menu.classList.add("pointer-events-none");
     menu.setAttribute("aria-hidden", "true");
     if (gsap) {
-      gsap.to(menu, { opacity: 0, duration: 0.25, ease: "power2.in" });
+      gsap.to(menu, {
+        height: "0",
+        duration: 0.75,
+        ease: "power2.out",
+        onStart: () => {
+          menu.style.pointerEvents = "none";
+        }
+      });
     } else {
-      menu.style.opacity = "0";
+      menu.style.height = "0";
+      menu.style.pointerEvents = "none";
     }
   }
 
   function initGlobalDelegatedActions() {
+    // Prevent clicks inside the paperclipped form sheet from closing the modal backdrop
+    const modalSheet = document.getElementById("contact-modal-sheet");
+    if (modalSheet) {
+      modalSheet.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+    }
+
     document.addEventListener("click", (e) => {
       const actionEl = e.target.closest("[data-action]");
       if (!actionEl) return;
