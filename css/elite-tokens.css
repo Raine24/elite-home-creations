@@ -1,0 +1,269 @@
+/* ==========================================================================
+   Storey Architecture x Elite Home Creations DFW — Semantic Design Tokens & A11y
+   Target: WCAG 2.2 AA | Minimal, Utility-First, Accessibility-Prioritized
+   ========================================================================== */
+
+:root {
+  /* Typography Tokens */
+  --font-family-primary: "New Grotesk";
+  --font-family-stack: "New Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-mono: "New Grotesk Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-family-accent: "Biro", ui-monospace, monospace;
+
+  --font-size-base: 13.508px;
+  --font-weight-base: 400;
+  --font-weight-medium: 500;
+  --font-line-height-base: 13.508px;
+  --font-line-height-body: 1.2;
+
+  --font-size-xs: 13.51px;
+  --font-size-sm: 16px;
+  --font-size-md: 19.65px;
+  --font-size-lg: 27.02px;
+
+  /* Semantic Color Palette Tokens */
+  --color-text-primary: #ffffff;
+  --color-text-inverse: #000000;
+  --color-text-secondary: #3d3d3d;
+  --color-text-muted-on-dark: rgba(255, 255, 255, 0.72);
+  --color-text-muted-on-light: rgba(0, 0, 0, 0.62);
+
+  --color-surface-base: #000000;
+  --color-surface-elevated: #ffffff;
+  --color-surface-paper: #fefefe;
+
+  --color-border-default: #e5e7eb;
+  --color-border-subtle: #bfbfbf;
+  --color-border-dark-subtle: #2b2b2b;
+
+  /* Brand & Focus / Status Tokens */
+  --color-focus-ring: #06a3da;
+  --color-status-error: #dc2626;
+  --color-status-success: #15803d;
+  --color-status-warning: #d97706;
+
+  /* Spacing Scale Tokens */
+  --space-1: 6.14px;
+  --space-2: 8.6px;
+  --space-3: 9.82px;
+  --space-4: 11.05px;
+  --space-5: 12.28px;
+  --space-6: 14.74px;
+  --space-7: 17.19px;
+  --space-8: 36.84px;
+
+  /* Manual Shape, Shadow & Motion Tokens */
+  --radius-none: 0px;
+  --radius-full: 9999px;
+  --shadow-none: none;
+  --shadow-modal: 0 24px 48px rgba(0, 0, 0, 0.45);
+  --motion-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  --motion-ease-out-quad: cubic-bezier(0.25, 1, 0.5, 1);
+  --motion-duration-fast: 200ms;
+  --motion-duration-normal: 400ms;
+  --motion-duration-slow: 750ms;
+}
+
+/* Smooth scrolling & base surface rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Skip to main content link for keyboard-first WCAG 2.2 AA accessibility */
+.skip-to-content {
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 1000000;
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-inverse);
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  border: 2px solid var(--color-focus-ring);
+  transform: translateY(-200%);
+  transition: transform var(--motion-duration-fast) var(--motion-ease-out-quad);
+}
+
+.skip-to-content:focus,
+.skip-to-content:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* WCAG 2.2 AA Focus-Visible Rules (Never hidden) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-focus-ring) !important;
+  outline-offset: 2px !important;
+}
+
+/* Custom peer checkbox focus-visible indicator */
+.peer:focus-visible ~ .peer-focus-box {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Explicit Component States: active, disabled, loading, error */
+button:active:not(:disabled),
+.btn-animated:active:not([aria-disabled="true"]) {
+  transform: scale(0.985);
+}
+
+button:disabled,
+input:disabled,
+textarea:disabled,
+[aria-disabled="true"] {
+  opacity: 0.45 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+}
+
+[data-state="loading"] .spoke-spinner-ring {
+  animation: storeySpokeSpin 1.1s linear infinite !important;
+}
+
+@keyframes storeySpokeSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.input-error-border {
+  border-bottom-color: var(--color-status-error) !important;
+  border-bottom-width: 2px !important;
+}
+
+.form-status-msg[data-status="error"] {
+  color: var(--color-status-error);
+}
+
+.form-status-msg[data-status="success"] {
+  color: var(--color-status-success);
+}
+
+/* Line-by-line text appear masks matching Storey's SplitText lines */
+.appear-block {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.appear-inner {
+  display: inline-block;
+  max-width: 100%;
+  will-change: transform;
+}
+
+/* Before & After Interactive Comparison Slider */
+.ba-slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+  background-color: var(--color-surface-base);
+}
+
+.ba-slider-before {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ba-slider-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--color-surface-elevated);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.ba-slider-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-inverse);
+  padding: 0.45vw 0.8vw;
+  font-family: var(--font-family-mono);
+  font-size: 0.85vw;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  box-shadow: var(--shadow-modal);
+}
+
+@media (max-width: 640px) {
+  .ba-slider-knob {
+    padding: 2vw 3.5vw;
+    font-size: 3.4vw;
+    gap: 2vw;
+  }
+}
+
+.ba-range-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 20;
+  margin: 0;
+}
+
+.ba-range-input:focus-visible ~ .ba-slider-handle .ba-slider-knob {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Image fallback state when data-error=1 */
+img[data-error="1"] {
+  opacity: 0.15;
+  filter: grayscale(100%);
+}
+
+/* Reduced Motion Accessibility Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elite Home Creations | Custom Bathroom &amp; Kitchen Remodeling in Dallas/Fort Worth</title>
+  <meta name="description" content="Elite Home Creations specializes in custom bathroom remodeling, luxury chef's kitchens, and whole-home living space transformations across Dallas/Fort Worth with a Fixed Price Guarantee." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" type="image/png" href="cropped-EliteHome-1-192x192.png" />
+
+  <!-- Preload Authentic Storey Architecture Typefaces -->
+  <link rel="preload" href="fonts/NewGrotesk-Regular.otf" as="font" type="font/otf" crossorigin />
+  <link rel="preload" href="fonts/NewGrotesk-Medium.otf" as="font" type="font/otf" crossorigin />
+  <link rel="preload" href="fonts/NewGrotesk-RegularMono.otf" as="font" type="font/otf" crossorigin />
+  <link rel="preload" href="fonts/NewGrotesk-MediumMono.otf" as="font" type="font/otf" crossorigin />
+  <link rel="preload" href="fonts/Biro.otf" as="font" type="font/otf" crossorigin />
+
+  <!-- Authentic Storey Architecture Compiled CSS + Semantic Token Overrides -->
+  <link rel="stylesheet" href="css/storey-entry.css" />
+  <link rel="stylesheet" href="css/storey-seo.css" />
+  <link rel="stylesheet" href="css/storey-studio.css" />
+  <link rel="stylesheet" href="css/elite-tokens.css" />
+</head>
+<body class="bg-primary text-secondary antialiased selection:bg-secondary selection:text-primary">
+  <!-- WCAG 2.2 AA Skip Navigation Link -->
+  <a href="#app-view" class="skip-to-content font-mono">Skip to main content</a>
+
+  <div id="__nuxt">
+    <div class="w-full h-fit bg-primary">
+      <!-- 1. STOREY PAGE TRANSITION OVERLAY (#transition-overlay) -->
+      <div id="transition-overlay" class="w-full h-[100svh] bg-secondary z-[100] pointer-events-none fixed top-0 left-0 opacity-0"></div>
+
+      <!-- 2. MODAL CONTACT (Paperclipped Project Brief Drawer) -->
+      <div id="contact-modal" class="w-full h-[100dvh] z-[60] fixed top-0 left-0 pointer-events-none overflow-y-scroll sm:overflow-y-hidden" role="dialog" aria-modal="true" aria-label="Request a Free Quote" aria-hidden="true">
+        <div id="contact-modal-bg" class="w-full h-full fixed top-0 left-0 bg-secondary/50 opacity-0" data-action="close-contact-modal"></div>
+        <div class="w-full h-fit relative flex justify-center">
+          <div id="contact-modal-sheet" class="w-full sm:w-[73.6vw] h-fit mt-[20vw] sm:mt-[3vw] relative translate-y-[110%] rotate-[12deg]">
+            <div class="absolute top-0 right-0 p-[var(--margin)] z-20">
+              <button type="button" class="extraSmallText cursor-pointer font-mono px-[0.5vw] py-[0.25vw]" data-action="close-contact-modal" aria-label="Close quote form">Close [ESC]</button>
+            </div>
+            <div id="contact-modal-form-mount"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. CORE MOBILE MENU -->
+      <div id="mobile-menu" class="w-full h-[100dvh] fixed top-0 left-0 z-50 bg-secondary text-primary py-[4.5vw] opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu" aria-hidden="true">
+        <div class="w-full h-full flex flex-col justify-between">
+          <div class="layout-grid w-full">
+            <div class="col-span-5">
+              <a href="#/" class="flex sm:gap-[0.25vw] gap-[2vw] items-center cursor-pointer" data-action="close-mobile-menu">
+                <span class="mediumText">Elite</span>
+                <div class="w-[7vw] sm:w-[1.7vw] pt-[1vw] sm:pt-[0.25vw] h-auto" data-brand-logo-mount></div>
+              </a>
+            </div>
+            <div class="col-span-1 flex justify-end">
+              <button type="button" class="mediumText" data-action="close-mobile-menu">Close</button>
+            </div>
+          </div>
+
+          <div class="layout-grid">
+            <div class="col-span-6">
+              <ul class="largeText space-y-[1vw]">
+                <li><a href="#/" data-action="close-mobile-menu">Home</a></li>
+                <li><a href="#/projects" data-action="close-mobile-menu">Projects</a></li>
+                <li><a href="#/studio" data-action="close-mobile-menu">Studio</a></li>
+                <li><a href="#/journal" data-action="close-mobile-menu">Journal</a></li>
+                <li><a href="#/faq" data-action="close-mobile-menu">FAQ</a></li>
+                <li class="pt-[2vw]"><button type="button" class="largeText underline" data-action="open-contact-modal">Free Quote</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="layout-grid extraSmallText">
+            <div class="col-span-6 flex flex-col gap-[1vw]">
+              <a href="mailto:info@elitehomecreationsdfw.com">info@elitehomecreationsdfw.com</a>
+              <a href="tel:+12142980007">(214) 298-0007</a>
+              <span class="opacity-60 font-mono">Dallas / Fort Worth Area, TX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. CORE HEADER (Fixed Adaptive Navigation Bar) -->
+      <header id="core-header" class="w-full h-fit fixed top-0 left-0 z-30 transition-colors duration-300 pointer-events-none opacity-0 text-secondary">
+        <div class="layout-grid w-full pt-[4.5vw] sm:py-[1.5vw] items-center">
+          <div class="col-span-5 sm:col-span-6 flex items-center">
+            <a href="#/" class="flex sm:gap-[0.25vw] gap-[2vw] items-center cursor-pointer">
+              <span class="mediumText">Elite</span>
+              <div class="w-[7vw] sm:w-[1.7vw] pt-[1vw] sm:pt-[0.25vw] h-auto" data-brand-logo-mount></div>
+            </a>
+          </div>
+          <div class="sm:hidden block col-span-1">
+            <button type="button" class="mediumText flex w-full justify-end" data-action="open-mobile-menu">Menu</button>
+          </div>
+          <nav aria-label="Primary Navigation" class="col-span-6 sm:flex justify-between items-center extraSmallText hidden">
+            <div class="flex">
+              <a href="#/projects" class="pr-[1vw] h-fit" data-directional-link>
+                <div class="group cursor-pointer">
+                  <div class="group-hover:translate-y-[-0.25vw] transition-transform duration-200 ease-out"><span>Projects</span></div>
+                  <div class="w-full h-[max(0.1vw,1px)] bg-current transition-transform duration-300 ease-in-out" data-directional-bar style="transform-origin:right;transform:scaleX(0);"></div>
+                </div>
+              </a>
+              <a href="#/studio" class="pr-[1vw] h-fit" data-directional-link>
+                <div class="group cursor-pointer">
+                  <div class="group-hover:translate-y-[-0.25vw] transition-transform duration-200 ease-out"><span>Studio</span></div>
+                  <div class="w-full h-[max(0.1vw,1px)] bg-current transition-transform duration-300 ease-in-out" data-directional-bar style="transform-origin:right;transform:scaleX(0);"></div>
+                </div>
+              </a>
+              <a href="#/journal" class="pr-[1vw] h-fit" data-directional-link>
+                <div class="group cursor-pointer">
+                  <div class="group-hover:translate-y-[-0.25vw] transition-transform duration-200 ease-out"><span>Journal</span></div>
+                  <div class="w-full h-[max(0.1vw,1px)] bg-current transition-transform duration-300 ease-in-out" data-directional-bar style="transform-origin:right;transform:scaleX(0);"></div>
+                </div>
+              </a>
+              <a href="#/faq" class="pr-[1vw] h-fit" data-directional-link>
+                <div class="group cursor-pointer">
+                  <div class="group-hover:translate-y-[-0.25vw] transition-transform duration-200 ease-out"><span>FAQ</span></div>
+                  <div class="w-full h-[max(0.1vw,1px)] bg-current transition-transform duration-300 ease-in-out" data-directional-bar style="transform-origin:right;transform:scaleX(0);"></div>
+                </div>
+              </a>
+              <a href="tel:+12142980007" class="pr-[1vw] h-fit font-mono" data-directional-link>
+                <div class="group cursor-pointer">
+                  <div class="group-hover:translate-y-[-0.25vw] transition-transform duration-200 ease-out"><span>(214) 298-0007</span></div>
+                  <div class="w-full h-[max(0.1vw,1px)] bg-current transition-transform duration-300 ease-in-out" data-directional-bar style="transform-origin:right;transform:scaleX(0);"></div>
+                </div>
+              </a>
+            </div>
+            <div id="header-cta-mount"></div>
+          </nav>
+        </div>
+      </header>
+
+      <!-- 5. DYNAMIC ROUTE VIEW CONTAINER -->
+      <main id="app-view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <!-- Local Animation Engines & Application Scripts -->
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <script src="js/lenis.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
