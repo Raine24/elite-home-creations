@@ -1,6 +1,7 @@
 /* ==========================================================================
    Storey Architecture x Elite Home Creations DFW — Semantic Design Tokens & A11y
    Target: WCAG 2.2 AA | Minimal, Utility-First, Accessibility-Prioritized
+   Includes Official Elite Home Creations Brand Blue (#1F74FC & #07172F)
    ========================================================================== */
 
 :root {
@@ -36,8 +37,17 @@
   --color-border-subtle: #bfbfbf;
   --color-border-dark-subtle: #2b2b2b;
 
-  /* Brand & Focus / Status Tokens */
-  --color-focus-ring: #06a3da;
+  /* Official Client Brand Palette (Extracted from EliteHome.png & Stylesheet) */
+  --color-brand-blue: #1f74fc;
+  --color-brand-blue-hover: #0274be;
+  --color-brand-cyan: #06a3da;
+  --color-brand-navy: #07172f;
+  --color-brand-midnight: #040b18;
+  --color-brand-blue-soft: rgba(31, 116, 252, 0.14);
+  --color-brand-blue-glow: rgba(31, 116, 252, 0.42);
+
+  /* Focus & Validation Status Tokens */
+  --color-focus-ring: #1f74fc;
   --color-status-error: #dc2626;
   --color-status-success: #15803d;
   --color-status-warning: #d97706;
@@ -65,6 +75,12 @@
   --motion-duration-slow: 750ms;
 }
 
+/* Text Selection in Client Brand Blue */
+::selection {
+  background-color: var(--color-brand-blue) !important;
+  color: var(--color-text-primary) !important;
+}
+
 /* Smooth scrolling & base surface rules */
 html.lenis,
 html.lenis body {
@@ -81,6 +97,115 @@ html.lenis body {
 
 .lenis.lenis-stopped {
   overflow: hidden;
+}
+
+/* ==========================================================================
+   ELITE HOME CREATIONS — CURATED BRAND BLUE BLEND (Preserving Storey Aesthetic)
+   ========================================================================== */
+
+/* 1. Official Brand Mark Sizing & Crispness */
+.elite-official-mark {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(31, 116, 252, 0.18));
+}
+
+/* 2. Active Slider Progress Bars in Official #1F74FC Brand Blue */
+[data-hero-bar-fill],
+[data-test-bar-fill],
+[data-studio-about-bar-fill],
+[data-practice-bar-fill] {
+  background-color: var(--color-brand-blue) !important;
+  box-shadow: 0 0 10px var(--color-brand-blue-glow);
+}
+
+/* 3. Navigation Directional Hover Underlines in #1F74FC Brand Blue */
+[data-directional-bar],
+[data-core-footer] ul li a .origin-right {
+  background-color: var(--color-brand-blue) !important;
+}
+
+/* 4. 8-Spoke Starburst Animated Buttons — Subtle Brand Blue Accent & Hover */
+[data-btn-animated] [data-btn-spoke-bar] {
+  transition: background-color var(--motion-duration-fast) ease;
+}
+
+[data-btn-animated]:hover [data-btn-spoke-bar],
+[data-btn-animated]:focus-visible [data-btn-spoke-bar],
+[data-display-card]:hover [data-btn-animated] [data-btn-spoke-bar] {
+  background-color: var(--color-brand-blue) !important;
+}
+
+/* Primary Quote CTA & Form Submit Button Brand Accent */
+[data-btn-animated][data-action="open-contact-modal"] {
+  box-shadow: inset 3px 0 0 0 var(--color-brand-blue);
+}
+
+[data-btn-animated][data-btn-color="form"] {
+  background-color: var(--color-brand-navy) !important;
+  box-shadow: inset 3px 0 0 0 var(--color-brand-blue);
+  transition: background-color var(--motion-duration-fast) ease;
+}
+
+[data-btn-animated][data-btn-color="form"]:hover,
+[data-btn-animated][data-btn-color="form"]:focus-visible {
+  background-color: var(--color-brand-blue) !important;
+}
+
+[data-btn-animated][data-btn-color="form"]:hover [data-btn-spoke-bar],
+[data-btn-animated][data-btn-color="form"]:focus-visible [data-btn-spoke-bar] {
+  background-color: var(--color-text-primary) !important;
+}
+
+/* 5. Cursor-Following Project Hover Badge Starburst in Brand Blue */
+[data-hover-svg] {
+  color: var(--color-brand-blue) !important;
+}
+
+[data-hover-opacity] {
+  border-left: 3px solid var(--color-brand-blue);
+}
+
+/* 6. 3D Ring Spinners — Subtle Architectural Blue Highlights */
+[data-spinner-square] {
+  border-top: 2px solid var(--color-brand-blue);
+  transition: box-shadow 0.3s ease;
+}
+
+#central-logo-spinner > div:nth-child(even) > div {
+  border-top: 2px solid var(--color-brand-blue);
+}
+
+#side-logo-spinner > div:nth-child(even) > div {
+  background-color: var(--color-brand-blue) !important;
+  opacity: 0.14 !important;
+}
+
+/* 7. Journal Sticky Minimap Marker & Footer Credit Emblem in Brand Blue */
+[data-journal-marker] {
+  background-color: var(--color-brand-blue) !important;
+  box-shadow: 0 0 8px var(--color-brand-blue-glow);
+}
+
+[data-credit-glass] {
+  color: var(--color-brand-blue) !important;
+}
+
+/* 8. Custom Checkbox Checked State in Intake Form */
+.peer:checked ~ .peer-focus-box {
+  background-color: var(--color-brand-blue) !important;
+}
+
+/* 9. Subtle Deep Midnight-Navy Architectural Ambient Tint on Dark Sections */
+[data-testimonials-section],
+[data-studio-hero],
+[data-studio-practice] {
+  background-image: radial-gradient(
+    circle at 80% 20%,
+    rgba(7, 23, 47, 0.78) 0%,
+    rgba(0, 0, 0, 0) 68%
+  );
 }
 
 /* Skip to main content link for keyboard-first WCAG 2.2 AA accessibility */
@@ -140,7 +265,8 @@ textarea:disabled,
   pointer-events: none !important;
 }
 
-[data-state="loading"] .spoke-spinner-ring {
+[data-state="loading"] .spoke-spinner-ring,
+[aria-busy="true"] .spoke-spinner-ring {
   animation: storeySpokeSpin 1.1s linear infinite !important;
 }
 
@@ -153,17 +279,21 @@ textarea:disabled,
   }
 }
 
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
 .input-error-border {
   border-bottom-color: var(--color-status-error) !important;
   border-bottom-width: 2px !important;
 }
 
+.form-status-msg.is-error,
 .form-status-msg[data-status="error"] {
   color: var(--color-status-error);
 }
 
+.form-status-msg.is-success,
 .form-status-msg[data-status="success"] {
-  color: var(--color-status-success);
+  color: var(--color-brand-blue);
 }
 
 /* Line-by-line text appear masks matching Storey's SplitText lines */
@@ -180,7 +310,7 @@ textarea:disabled,
   will-change: transform;
 }
 
-/* Before & After Interactive Comparison Slider */
+/* Before & After Interactive Comparison Slider (Accented with Brand Blue) */
 .ba-slider-container {
   position: relative;
   width: 100%;
@@ -203,7 +333,8 @@ textarea:disabled,
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: var(--color-surface-elevated);
+  background-color: var(--color-brand-blue);
+  box-shadow: 0 0 12px var(--color-brand-blue-glow);
   z-index: 15;
   pointer-events: none;
 }
@@ -215,6 +346,7 @@ textarea:disabled,
   transform: translate(-50%, -50%);
   background-color: var(--color-surface-elevated);
   color: var(--color-text-inverse);
+  border-left: 3px solid var(--color-brand-blue);
   padding: 0.45vw 0.8vw;
   font-family: var(--font-family-mono);
   font-size: 0.85vw;
@@ -224,6 +356,11 @@ textarea:disabled,
   align-items: center;
   gap: 0.5vw;
   box-shadow: var(--shadow-modal);
+}
+
+.ba-slider-knob span:nth-child(2) {
+  color: var(--color-brand-blue);
+  font-weight: 700;
 }
 
 @media (max-width: 640px) {

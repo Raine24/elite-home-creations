@@ -6,17 +6,13 @@
 window.ELITE_TEMPLATES = (function () {
   const D = window.ELITE_DATA;
 
-  // Exact Storey 8-ray logo mark SVG
+  // Official Elite Home Creations DFW "E + House Roof" Geometric Brand Mark (#1F74FC)
   function brandLogoSvg() {
-    return `<svg viewBox="0 0 44 38" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M17.6298 3.44706L22.0886 1.60715L22.1804 3.8007L17.5483 5.66439L17.6298 3.44706Z" fill="currentColor"></path>
-      <path d="M16.5621 32.7915L23.326 30.9269L23.5438 36.1337L16.373 37.9373L16.5621 32.7915Z" fill="currentColor"></path>
-      <path d="M31.6239 0L35.9052 0.692643L33.315 3.5885L29.1074 2.72402L31.6239 0Z" fill="currentColor"></path>
-      <path d="M5.90723 12.375L9.29129 8.94795L11.3444 9.72015L7.87018 13.2983L5.90723 12.375Z" fill="currentColor"></path>
-      <path d="M41.9074 21.0034L37.4409 26.9695L32.7256 24.7415L37.0801 19.1786L41.9074 21.0034Z" fill="currentColor"></path>
-      <path d="M4.79399 36.0661L1.61475 32.9919L5.06938 29.1728L8.41764 31.9215L4.79399 36.0661Z" fill="currentColor"></path>
-      <path d="M42.3998 5.55733L44.0001 9.70575L38.7852 11.4972L37.5498 7.3188L42.3998 5.55733Z" fill="currentColor"></path>
-      <path d="M4.48057 19.2297L3.61749 23.4661L0 24.7108L1.04267 20.48L4.48057 19.2297Z" fill="currentColor"></path>
+    return `<svg viewBox="0 0 88 76" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="elite-official-mark">
+      <!-- Outer E / Bracket Frame in Official #1F74FC Brand Blue -->
+      <path d="M4 4H49V20H38V15H15V61H38V49H49V72H4V4Z" fill="#1F74FC"></path>
+      <!-- Pitched Architectural Roof & Right Wall in Official #1F74FC Brand Blue -->
+      <path d="M10 43L44 24L84 46V72H73V52.5L44 36.5L15 52.5V43H10Z" fill="#1F74FC"></path>
     </svg>`;
   }
 
@@ -90,7 +86,7 @@ window.ELITE_TEMPLATES = (function () {
     return `<button type="${buttonType}" ${commonAttrs}>${inner}</button>`;
   }
 
-  // Exact Storey DisplayLogo (3D perspective 8-spoke architectural emblem)
+  // Exact Storey DisplayLogo (3D perspective 8-spoke architectural emblem with Elite Brand Blue accent spokes)
   function displayLogo({ scale = 1.2, color = "primary" } = {}) {
     const w = scale * 13 + "vw";
     const barH = scale * 1.15 + "vw";
@@ -101,8 +97,12 @@ window.ELITE_TEMPLATES = (function () {
 
     let spokes = "";
     for (let i = 1; i <= 8; i++) {
+      const isBrandAccent = i === 2 || i === 6;
+      const barStyle = isBrandAccent
+        ? `height:${barH};background-color:#1F74FC;`
+        : `height:${barH};`;
       spokes += `<div class="h-fit absolute top-0 left-1/2 -translate-x-1/2 origin-bottom" style="width:${barW};padding-bottom:${padB};transform:rotate(${i * 45}deg);">
-        <div class="w-full ${bgClass}" style="height:${barH};"></div>
+        <div class="w-full ${isBrandAccent ? "" : bgClass}" style="${barStyle}"></div>
       </div>`;
     }
     return `<div class="relative" style="width:${w};height:${w};transform:perspective(${persp}) rotate3d(0.29, -1.01, 1.32, 91deg);">${spokes}</div>`;
@@ -195,8 +195,8 @@ window.ELITE_TEMPLATES = (function () {
           </div>
           <div>
             <div class="flex sm:gap-[0.5vw] gap-[2vw] items-center">
+              <div class="w-[1.6vw] h-auto">${brandLogoSvg()}</div>
               <span class="text-[1vw] font-medium">${D.brand.name}</span>
-              <div class="w-[1.5vw] pt-[0.25vw] h-auto">${brandLogoSvg()}</div>
             </div>
           </div>
         </div>
@@ -302,9 +302,9 @@ window.ELITE_TEMPLATES = (function () {
           <span class="font-mono mediumText">PROJECT BRIEF INTAKE</span>
         </div>
         <div class="col-span-6 sm:col-span-3 sm:col-start-8 mt-[6vw] sm:mt-0 hidden sm:block">
-          <div class="flex sm:gap-[1vw] gap-[2vw] items-center sm:justify-start justify-end">
+          <div class="flex sm:gap-[0.65vw] gap-[2vw] items-center sm:justify-start justify-end">
+            <div class="w-[7vw] sm:w-[2.4vw] h-auto">${brandLogoSvg()}</div>
             <span class="mediumText">${D.brand.name}</span>
-            <div class="w-[7vw] sm:w-[3vw] pt-[1vw] sm:pt-[0.25vw] h-auto">${brandLogoSvg()}</div>
           </div>
         </div>
       </div>
@@ -555,9 +555,9 @@ window.ELITE_TEMPLATES = (function () {
                 </ul>
               </div>
               <div class="col-span-6 sm:col-span-3">
-                <a href="#/" class="flex sm:gap-[0.25vw] gap-[2vw] items-center cursor-pointer w-fit">
+                <a href="#/" class="flex sm:gap-[0.55vw] gap-[2vw] items-center cursor-pointer w-fit">
+                  <div class="w-[7.5vw] sm:w-[2.1vw] h-auto">${brandLogoSvg()}</div>
                   <span class="mediumText">${D.brand.name}</span>
-                  <div class="w-[7vw] sm:w-[1.7vw] pt-[1vw] sm:pt-[0.25vw] h-auto">${brandLogoSvg()}</div>
                 </a>
                 <p class="extraSmallText font-mono opacity-60 mt-[1.5vw]">© Elite Home Creations. All Rights Reserved.</p>
               </div>
@@ -769,9 +769,9 @@ window.ELITE_TEMPLATES = (function () {
         </div>
         <div class="layout-grid w-full h-[100svh] relative pt-[4.5vw] sm:py-[1.5vw] grid-rows-[auto_1fr] text-primary">
           <div class="col-span-5 sm:col-span-6 opacity-0" data-hero-top-item>
-            <a href="#/" class="flex w-fit sm:gap-[0.25vw] gap-[2vw] items-center cursor-pointer">
+            <a href="#/" class="flex w-fit sm:gap-[0.55vw] gap-[2vw] items-center cursor-pointer">
+              <div class="w-[7.5vw] sm:w-[2.1vw] h-auto">${brandLogoSvg()}</div>
               <span class="mediumText">${D.brand.name}</span>
-              <div class="w-[7vw] sm:w-[1.7vw] pt-[1vw] sm:pt-[0.25vw] h-auto">${brandLogoSvg()}</div>
             </a>
           </div>
           <div class="sm:hidden block col-span-1" data-action="open-mobile-menu">
