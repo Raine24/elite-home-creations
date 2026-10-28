@@ -23,7 +23,7 @@ window.ELITE_DATA = {
 
   heroSlides: [
     {
-      image: "after_4.png",
+      image: "Transform_Your_Home_with_Luxury_Remodeling_Services_in_Dallas_TX.jpg",
       alt: "Luxury Whole-Home & Bathroom Transformation in Dallas TX",
       statement:
         "Elite Home Creations designs and builds contemporary bathroom, kitchen, and whole-home transformations across Dallas–Fort Worth, combining custom design expertise with a fixed price guarantee and timeless detailing throughout."
@@ -35,7 +35,7 @@ window.ELITE_DATA = {
         "Whether you are dreaming of a sleek, modern chef’s kitchen with custom cabinetry and quartz islands or a warm gathering space, our certified installers handle every element of your renovation with precision."
     },
     {
-      image: "after_1.png",
+      image: "Elevate_Your_Daily_Routine_with_a_Luxury_Bathroom_Remodel_in_Dallas.jpg",
       alt: "Spa-Inspired Walk-In Shower and Vanity Remodel Dallas",
       statement:
         "Whether it’s walk-in tile showers, freestanding soaking tubs, or handcrafted double vanities with natural stone countertops, we craft Dallas bathrooms that rival five-star luxury hotels."
@@ -108,9 +108,9 @@ window.ELITE_DATA = {
       description:
         "A complete master bath transformation in Dallas featuring a frameless glass walk-in rain shower, imported large-format porcelain tile, freestanding soaking tub, handcrafted double vanity with quartz countertops, and backlit smart LED mirrors.",
       thumbnailImage: {
-        url: "after_1.png",
+        url: "Elevate_Your_Daily_Routine_with_a_Luxury_Bathroom_Remodel_in_Dallas.jpg",
         alt: "Highland Park Spa Bathroom After Remodel",
-        width: 1200,
+        width: 2400,
         height: 1600
       },
       beforeAfter: {
@@ -168,10 +168,10 @@ window.ELITE_DATA = {
       description:
         "A whole-home interior transformation combining soaring ceilings, custom architectural millwork, designer accent walls, warm hardwood flooring, and seamless indoor-outdoor flow tailored for effortless modern living.",
       thumbnailImage: {
-        url: "after_4.png",
+        url: "LivingSpaces_14.jpg",
         alt: "Uptown Whole-Home Transformation",
-        width: 1200,
-        height: 900
+        width: 2400,
+        height: 1600
       },
       beforeAfter: {
         before: "before_4.png",
@@ -198,10 +198,10 @@ window.ELITE_DATA = {
       description:
         "A precision tub-to-shower conversion and small-bathroom optimization in Lakewood. Custom recessed niches, frameless glass enclosure, water-resistant wall treatments, and floating vanity storage make the room feel twice as expansive.",
       thumbnailImage: {
-        url: "after_3.jpg",
+        url: "Bathroom_Remodel.jpg",
         alt: "Lakewood Walk-In Shower Conversion",
-        width: 1200,
-        height: 900
+        width: 2400,
+        height: 1600
       },
       beforeAfter: {
         before: "before_3.jpg",
@@ -249,7 +249,7 @@ window.ELITE_DATA = {
 
   testimonials: [
     {
-      image: "after_1.png",
+      image: "Elevate_Your_Daily_Routine_with_a_Luxury_Bathroom_Remodel_in_Dallas.jpg",
       thumb: "Review_1_pfp.png",
       imageAlt: "Sulaiman Oyebola Bathroom Remodel Dallas",
       copy: "Elite Home Creations transformed our outdated master bathroom into a five-star spa retreat. Their custom design consultation, attention to tile detail, and fixed price guarantee made the entire renovation effortless.",
@@ -265,7 +265,7 @@ window.ELITE_DATA = {
       company: "PRESTON HOLLOW CLIENT"
     },
     {
-      image: "after_4.png",
+      image: "Transform_Your_Home_with_Luxury_Remodeling_Services_in_Dallas_TX.jpg",
       thumb: "Review_8_pfp.png",
       imageAlt: "Jason Noble Turnkey Investor Renovation",
       copy: "As a real estate investor in DFW, timely project delivery and transparent pricing are everything. Elite Home Creations delivered turnkey kitchen and bath upgrades that commanded top dollar on the market.",

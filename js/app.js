@@ -61,6 +61,7 @@
       duration: 0.6,
       smoothWheel: true
     });
+    window.__lenis = lenis;
 
     if (ScrollTrigger) {
       lenis.on("scroll", ScrollTrigger.update);
